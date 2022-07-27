@@ -1,23 +1,6 @@
-
-
-const cl = (x) => console.log(x);
-
-
-
-const listCatArr = Array.from(document.querySelectorAll("#categories>li"));
-
-cl("Number of categories: " + listCatArr.length);
-
-
-
-const list = document.querySelector(".item");
-const listTitles = document.querySelectorAll(".item>h2");
-const listsInsideList = document.querySelectorAll(".item>ul");
-
-for (let i = 0; i < listTitles.length; i++) {
-  let t = listTitles[i].textContent;
-  let listArr = listsInsideList[i].querySelectorAll("li");
-  let listLen = listArr.length;
-  cl("Category: " + t + "\n" + "Elements: " + listLen);
-};
-
+const list = document.querySelectorAll('li.item');
+console.log(`Number of categories: ${list.length}`);
+list.forEach(el => {console.log(
+    `Category: ${el.firstElementChild.textContent}, Elements: ${el.lastElementChild.children.length}`,
+  );
+});
